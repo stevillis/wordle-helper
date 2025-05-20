@@ -4,7 +4,7 @@ Wordle Helper é um aplicativo simples para ajudar jogadores de jogos como o Wor
 
 ![App preview](app_preview.png)
 
-Acesse o app no [Streamlit Cloud](https://wordle-helper.streamlit.app/).
+Acesse o app no [Streamlit Cloud](https://wordle-assistant.streamlit.app/).
 
 ## Funcionalidades
 - Interface amigável via Streamlit
