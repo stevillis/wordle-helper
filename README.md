@@ -1,6 +1,6 @@
 # Wordle Helper
 
-Wordle Helper é um aplicativo simples para ajudar jogadores de jogos como o Wordle a encontrar palavras de 5 letras em português, baseado nas letras conhecidas em cada posição.
+Wordle Helper é um aplicativo simples para ajudar jogadores do jogo [Termo](https://termo.pt/) (Wordle em Português) a encontrar palavras de 5 letras em português, baseado nas letras conhecidas em cada posição.
 
 ![App preview](app_preview.png)
 

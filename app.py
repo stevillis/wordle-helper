@@ -6,8 +6,8 @@ if __name__ == "__main__":
     st.title("Wordle Helper")
     st.markdown(
         """
-        Este aplicativo auxilia você a encontrar palavras de 5 letras para
-        jogos como o [Wordle](https://www.nytimes.com/games/wordle/index.html).
+        Este aplicativo auxilia você a encontrar palavras de 5 letras para o
+        jogo [Termo](https://termo.pt/) (Wordle em Português).
 
         - Digite as letras conhecidas nas posições corretas. Deixe em branco
         as posições desconhecidas.
