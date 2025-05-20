@@ -1,71 +1,80 @@
 # Wordle Helper
 
-Wordle Helper é um aplicativo simples para ajudar jogadores do jogo [Termo](https://termo.pt/) (Wordle em Português) a encontrar palavras de 5 letras em português, baseado nas letras conhecidas em cada posição.
+Wordle Helper is a simple application to help players of [Wordle](https://wordle.com/) (English) and [Termo](https://termo.pt/) (Portuguese) find 5-letter words based on known letters in each position.
 
 ![App preview](app_preview.png)
 
-Acesse o app no [Streamlit Cloud](https://wordle-assistant.streamlit.app/).
+Access the app on [Streamlit Cloud](https://wordle-assistant.streamlit.app/).
 
-## Funcionalidades
-- Interface amigável via Streamlit
-- Busca rápida de palavras candidatas com base nas letras conhecidas
-- Suporte a padrões parciais (deixe caixas em branco para posições desconhecidas)
+## Features
+- User-friendly Streamlit interface
+- Quick search for candidate words based on known letters
+- Support for partial patterns (leave boxes blank for unknown positions)
+- Multi-language support (English and Portuguese)
 
-## Como Usar
-1. Abra o app com `streamlit run app.py`.
-2. Digite as letras conhecidas nas caixas correspondentes às posições das letras (deixe em branco se não souber).
-3. Clique em **Buscar** para ver as palavras candidatas.
-4. Use as sugestões para avançar no seu jogo!
+## How to Use
+1. Select your preferred language in the sidebar
+2. Type the known letters in the corresponding position boxes (leave blank if unknown)
+3. Click **Search** to see candidate words
+4. Use the suggestions to advance in your game!
 
-### Exemplo
-Se você sabe que a segunda letra é 'A', preencha apenas a segunda caixa:
+### Example
+If you know that the second letter is 'A', fill only the second box:
 
 | L1  | L2  | L3  | L4  | L5  |
 | --- | --- | --- | --- | --- |
 |     | A   |     |     |     |
 
-O app irá mostrar todas as palavras de 5 letras com 'A' na segunda posição.
+The app will show all 5-letter words with 'A' in the second position.
 
-## Instalação
-1. Clone este repositório:
+## Installation
+1. Clone this repository:
    ```bash
    git clone https://github.com/stevillis/wordle-helper.git
    cd wordle-helper
    ```
-2. Crie um ambiente virtual:
+2. Create a virtual environment:
    ```bash
    python -m venv venv
    ```
-3. Ative o ambiente virtual:
+3. Activate the virtual environment:
    ```bash
    .\venv\Scripts\activate
    ```
-4. Instale as dependências:
+4. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Executar o App
-1. Execute o app:
+## Running the App
+1. Run the app:
 ```bash
 streamlit run app.py
 ```
-2. Acesse `http://localhost:8501` no seu navegador.
+2. Access `http://localhost:8501` in your browser.
 
-## Estrutura do Projeto
+## Project Structure
 ```
 wordle-helper/
-├── app.py                # Interface Streamlit
-├── wordle_helper.py      # Funções de busca de palavras
-├── test_wordle_helper.py # Testes unitários (pytest)
-├── README.md             # Este arquivo
-└── br-sem-acentos.txt    # Lista de palavras do português brasileiro.
+├── app.py                # Streamlit interface
+├── wordle_helper.py      # Word search functions
+├── test_wordle_helper.py # Unit tests (pytest)
+├── README.md             # This file
+├── brazilian_words_no_accent.txt    # Brazilian Portuguese word list
+└── english_words_alpha.txt          # English word list
 ```
 
-A lista de palavras foi extraída do [repositório IME-USP](https://www.ime.usp.br/~pf/dicios/).
+### Word Lists
+- **English**: Based on the [English Words](https://github.com/dwyl/english-words) repository.
+- **Portuguese**: Sourced from [IME-USP](https://www.ime.usp.br/~pf/dicios/).
 
-## Testes (opcional)
-Para rodar os testes unitários:
+## Tests
+
+### Running Tests
 ```bash
+# Run all tests
 pytest test_wordle_helper.py
+
+# Run with coverage report
+pytest --cov=wordle_helper test_wordle_helper.py
 ```

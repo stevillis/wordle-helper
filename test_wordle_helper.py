@@ -1,5 +1,7 @@
 from unittest.mock import mock_open, patch
 
+import pytest
+
 from wordle_helper import find_words, get_five_letter_words, get_vocabulary
 
 
@@ -110,9 +112,39 @@ def test_find_words_with_empty_word_list():
 
 def test_find_words_case_sensitivity():
     """Test that find_words is case sensitive."""
-    five_letter_words = ["hello", "HELLO", "Hello", "hElLo"]
+    five_letter_words = ["Hello", "World", "Tests"]
     word_pattern = ["h", "e", "l", "l", "o"]
 
     result = find_words(five_letter_words, word_pattern)
 
-    assert result == ["hello"]
+    assert result == []
+
+
+@patch("wordle_helper.get_vocabulary")
+def test_get_five_letter_words_english(mock_get_vocabulary):
+    """Test that get_five_letter_words loads English words correctly."""
+    mock_get_vocabulary.return_value = ["hello", "world", "tests"]
+    result = get_five_letter_words(language="english")
+
+    assert result == ["hello", "world", "tests"]
+
+    expected = "./english_words_alpha.txt"
+    mock_get_vocabulary.assert_called_once_with(file_path=expected)
+
+
+@patch("wordle_helper.get_vocabulary")
+def test_get_five_letter_words_portuguese(mock_get_vocabulary):
+    """Test that get_five_letter_words loads Portuguese words correctly."""
+    mock_get_vocabulary.return_value = ["canto", "mundo", "teste"]
+    result = get_five_letter_words(language="português")
+
+    assert result == ["canto", "mundo", "teste"]
+
+    expected = "./brazilian_words_no_accent.txt"
+    mock_get_vocabulary.assert_called_once_with(file_path=expected)
+
+
+def test_get_five_letter_words_invalid_language():
+    """Test that get_five_letter_words raises ValueError for unsupported languages."""
+    with pytest.raises(ValueError, match="Invalid language: spanish"):
+        get_five_letter_words(language="spanish")

@@ -1,7 +1,7 @@
 from typing import List
 
 
-def get_vocabulary(file_path: str = "./br-sem-acentos.txt") -> List[str]:
+def get_vocabulary(file_path: str) -> List[str]:
     """Load vocabulary from a file, one word per line."""
     with open(file=file_path, mode="r", encoding="utf-8") as f:
         vocabulary = f.read().splitlines()
@@ -9,9 +9,16 @@ def get_vocabulary(file_path: str = "./br-sem-acentos.txt") -> List[str]:
     return vocabulary
 
 
-def get_five_letter_words() -> List[str]:
+def get_five_letter_words(language: str = "english") -> List[str]:
     """Filter the vocabulary to only five-letter words."""
-    vocabulary = get_vocabulary()
+    if language == "english":
+        file_path = "./english_words_alpha.txt"
+    elif language == "português":
+        file_path = "./brazilian_words_no_accent.txt"
+    else:
+        raise ValueError(f"Invalid language: {language}")
+
+    vocabulary = get_vocabulary(file_path=file_path)
     return [word.lower() for word in vocabulary if len(word) == 5]
 
 
